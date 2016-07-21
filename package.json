@@ -1,0 +1,22 @@
+{
+  "name": "generate-youtube",
+  "version": "0.1.0",
+  "author": "sasa+1 <sasaplus1@gmail.com>",
+  "description": "generate YouTube player",
+  "main": "./index.js",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sasaplus1-prototype/generate-youtube.js.git"
+  },
+  "scripts": {
+    "build": "npm run compile && npm run minify",
+    "compile": "npm run webpack -- --output-file generate-youtube.js",
+    "minify": "npm run webpack -- --optimize-minimize --output-file generate-youtube.min.js",
+    "webpack": "webpack --colors --display-error-details --progress"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  }
+}
