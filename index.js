@@ -24,7 +24,7 @@ function generate(selector, events) {
     params.events = events || {};
 
     instances.push(
-      new YT.Player(element.id, params)
+      new YT.Player(element, params)
     );
   }
 
