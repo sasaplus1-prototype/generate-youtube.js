@@ -57,9 +57,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var locationOrigin = __webpack_require__(1);
 
 	/**
 	 * generate YouTube player
@@ -80,12 +82,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    params = JSON.parse(script.innerHTML || '{}');
 
 	    params.playerVars || (params.playerVars = {});
-	    params.playerVars.origin = location.origin;
+	    params.playerVars.origin = locationOrigin.get();
 
 	    params.events = events || {};
 
 	    instances.push(
-	      new YT.Player(element.id, params)
+	      new YT.Player(element, params)
 	    );
 	  }
 
@@ -119,6 +121,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = {
 	  generate: generate,
 	  register: register
+	};
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var loc;
+
+	function get() {
+	  loc || (loc = window.location);
+
+	  return loc.origin || (
+	    loc.protocol + '//' + loc.hostname + (loc.port !== '' ? ':' + loc.port : '')
+	  );
+	}
+
+	module.exports = {
+	  get: get
 	};
 
 
