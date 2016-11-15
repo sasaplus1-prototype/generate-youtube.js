@@ -18,5 +18,8 @@
   },
   "devDependencies": {
     "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "location-origin": "github:sasaplus1-prototype/location-origin.js"
   }
 }
