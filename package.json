@@ -1,5 +1,5 @@
 {
-  "name": "generate-youtube",
+  "name": "youtube",
   "description": "generate YouTube player",
   "version": "0.2.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
@@ -17,7 +17,7 @@
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sasaplus1-prototype/generate-youtube.js.git"
+    "url": "https://github.com/sasaplus1-prototype/youtube.js.git"
   },
   "scripts": {
     "build": "npm run compile && npm run minify",

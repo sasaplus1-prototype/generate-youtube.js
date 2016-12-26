@@ -1,11 +1,11 @@
-# generate-youtube.js
+# youtube.js
 
 generate YouTube player
 
 ## Installation
 
 ```sh
-$ npm install sasaplus1-prototype/generate-youtube.js
+$ npm install sasaplus1-prototype/youtube.js
 ```
 
 ## Usage
@@ -13,13 +13,13 @@ $ npm install sasaplus1-prototype/generate-youtube.js
 via `require()`
 
 ```js
-var generateYoutube = require('generate-youtube');
+var generateYoutube = require('youtube');
 ```
 
 via `<script>`
 
 ```html
-<script src="generate-youtube.min.js"></script>
+<script src="youtube.min.js"></script>
 ```
 
 ### Example
@@ -53,8 +53,8 @@ via `<script>`
 ```
 
 ```js
-generateYoutube.register(function() {
-  generateYoutube.generate('.js-youtube', {
+youtube.register(function() {
+  youtube.generate('.js-youtube', {
     onReady: function() {
       console.log('ready');
     }
