@@ -1,7 +1,7 @@
 {
   "name": "youtube",
   "description": "generate YouTube player",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
   "dependencies": {
     "location-origin": "github:sasaplus1-prototype/location-origin.js"
