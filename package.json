@@ -1,10 +1,19 @@
 {
   "name": "generate-youtube",
+  "description": "generate YouTube player",
   "version": "0.2.0",
   "author": "sasa+1 <sasaplus1@gmail.com>",
-  "description": "generate YouTube player",
-  "main": "./index.js",
+  "dependencies": {
+    "location-origin": "github:sasaplus1-prototype/location-origin.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "fixpack": "^2.3.1",
+    "webpack": "^1.14.0"
+  },
   "license": "MIT",
+  "main": "./index.js",
+  "private": true,
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
@@ -12,14 +21,13 @@
   },
   "scripts": {
     "build": "npm run compile && npm run minify",
-    "compile": "npm run webpack -- --output-file generate-youtube.js",
-    "minify": "npm run webpack -- --optimize-minimize --output-file generate-youtube.min.js",
+    "compile": "npm run webpack -- --output-filename ${npm_package_name}.js",
+    "develop": "npm run webpack -- --devtool inline-source-map --watch --output-filename ${npm_package_name}.js",
+    "eslint": "eslint",
+    "export": "git archive HEAD | tar x - -C",
+    "fixpack": "fixpack",
+    "lint": "npm run eslint -- .",
+    "minify": "NODE_ENV=production npm run webpack -- --optimize-minimize --output-filename ${npm_package_name}.min.js",
     "webpack": "webpack --colors --display-error-details --progress"
-  },
-  "devDependencies": {
-    "webpack": "^1.13.1"
-  },
-  "dependencies": {
-    "location-origin": "github:sasaplus1-prototype/location-origin.js"
   }
 }
