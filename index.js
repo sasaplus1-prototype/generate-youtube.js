@@ -51,6 +51,7 @@ function register(callback) {
   }
 
   youtubeScript = document.createElement('script');
+  youtubeScript.async = true;
   youtubeScript.src = 'https://www.youtube.com/iframe_api';
 
   firstScript = document.getElementsByTagName('script')[0];
