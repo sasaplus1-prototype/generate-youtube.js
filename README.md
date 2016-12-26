@@ -1,11 +1,11 @@
-# generate-youtube.js
+# youtube.js
 
 generate YouTube player
 
 ## Installation
 
 ```sh
-$ npm install sasaplus1-prototype/generate-youtube.js
+$ npm install sasaplus1-prototype/youtube.js
 ```
 
 ## Usage
@@ -13,13 +13,13 @@ $ npm install sasaplus1-prototype/generate-youtube.js
 via `require()`
 
 ```js
-var generateYoutube = require('generate-youtube');
+var youtube = require('youtube');
 ```
 
 via `<script>`
 
 ```html
-<script src="generate-youtube.min.js"></script>
+<script src="youtube.min.js"></script>
 ```
 
 ### Example
@@ -52,14 +52,34 @@ via `<script>`
 </div>
 ```
 
+callback style:
+
 ```js
-generateYoutube.register(function() {
-  generateYoutube.generate('.js-youtube', {
+youtube.register(function() {
+  var instances = youtube.generate('.js-youtube', {
     onReady: function() {
       console.log('ready');
     }
   });
 });
+```
+
+Promise style:
+
+```js
+youtube.register().then(function() {
+  var instances = youtube.generate('.js-youtube', {
+    onReady: function() {
+      console.log('ready');
+    }
+  });
+});
+```
+
+if you want to use Promise polyfill:
+
+```js
+youtube.Promise = require('bluebird');
 ```
 
 ## Functions
@@ -79,6 +99,8 @@ create YT.Player instances.
 
 - `callback`
   - `Function`
+- `return`
+  - `Promise`
 
 callback set to `window.onYouTubeIframeAPIReady` and register YouTube script.
 

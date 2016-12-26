@@ -1,6 +1,6 @@
 /*!
- * @license generate-youtube.js Copyright(c) 2016 sasa+1
- * https://github.com/sasaplus1-prototype/generate-youtube.js
+ * @license youtube.js ver.0.2.0 Copyright(c) 2016 sasa+1
+ * https://github.com/sasaplus1-prototype/youtube.js
  * Released under the MIT license.
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -9,9 +9,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["generateYoutube"] = factory();
+		exports["youtube"] = factory();
 	else
-		root["generateYoutube"] = factory();
+		root["youtube"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -61,7 +61,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var locationOrigin = __webpack_require__(1);
+	// NOTE: get global object by any environment
+	var Promise = Function('return this')().Promise;
+
+	var origin = __webpack_require__(1).get();
 
 	/**
 	 * generate YouTube player
@@ -82,7 +85,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    params = JSON.parse(script.innerHTML || '{}');
 
 	    params.playerVars || (params.playerVars = {});
-	    params.playerVars.origin = locationOrigin.get();
+	    params.playerVars.origin = origin;
 
 	    params.events = events || {};
 
@@ -112,6 +115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  youtubeScript = document.createElement('script');
+	  youtubeScript.async = true;
 	  youtubeScript.src = 'https://www.youtube.com/iframe_api';
 
 	  firstScript = document.getElementsByTagName('script')[0];
@@ -119,6 +123,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	module.exports = {
+	  Promise: Promise,
 	  generate: generate,
 	  register: register
 	};

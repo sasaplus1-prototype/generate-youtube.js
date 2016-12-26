@@ -1,6 +1,9 @@
 'use strict';
 
-var locationOrigin = require('location-origin');
+// NOTE: get global object by any environment
+var Promise = Function('return this')().Promise;
+
+var origin = require('location-origin').get();
 
 /**
  * generate YouTube player
@@ -21,7 +24,7 @@ function generate(selector, events) {
     params = JSON.parse(script.innerHTML || '{}');
 
     params.playerVars || (params.playerVars = {});
-    params.playerVars.origin = locationOrigin.get();
+    params.playerVars.origin = origin;
 
     params.events = events || {};
 
@@ -51,6 +54,7 @@ function register(callback) {
   }
 
   youtubeScript = document.createElement('script');
+  youtubeScript.async = true;
   youtubeScript.src = 'https://www.youtube.com/iframe_api';
 
   firstScript = document.getElementsByTagName('script')[0];
@@ -58,6 +62,7 @@ function register(callback) {
 }
 
 module.exports = {
+  Promise: Promise,
   generate: generate,
   register: register
 };
