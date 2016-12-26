@@ -1,5 +1,5 @@
 /*!
- * @license youtube.js ver.0.2.0 Copyright(c) 2016 sasa+1
+ * @license youtube.js ver.1.0.0 Copyright(c) 2016 sasa+1
  * https://github.com/sasaplus1-prototype/youtube.js
  * Released under the MIT license.
  */
