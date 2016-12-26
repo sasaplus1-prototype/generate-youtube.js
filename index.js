@@ -1,5 +1,8 @@
 'use strict';
 
+// NOTE: get global object by any environment
+var Promise = Function('return this')().Promise;
+
 var origin = require('location-origin').get();
 
 /**
@@ -59,6 +62,7 @@ function register(callback) {
 }
 
 module.exports = {
+  Promise: Promise,
   generate: generate,
   register: register
 };
