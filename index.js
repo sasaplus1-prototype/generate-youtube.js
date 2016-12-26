@@ -1,6 +1,6 @@
 'use strict';
 
-var locationOrigin = require('location-origin');
+var origin = require('location-origin').get();
 
 /**
  * generate YouTube player
@@ -21,7 +21,7 @@ function generate(selector, events) {
     params = JSON.parse(script.innerHTML || '{}');
 
     params.playerVars || (params.playerVars = {});
-    params.playerVars.origin = locationOrigin.get();
+    params.playerVars.origin = origin;
 
     params.events = events || {};
 
